@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E01D4381E39AB8B00C4290F /* CompleteTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01D4371E39AB8B00C4290F /* CompleteTaskViewController.swift */; };
 		9E5EEA031E39985400222F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EEA021E39985400222F11 /* AppDelegate.swift */; };
-		9E5EEA051E39985400222F11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EEA041E39985400222F11 /* ViewController.swift */; };
+		9E5EEA051E39985400222F11 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EEA041E39985400222F11 /* TasksViewController.swift */; };
 		9E5EEA081E39985400222F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E5EEA061E39985400222F11 /* Main.storyboard */; };
 		9E5EEA0B1E39985400222F11 /* Sebs_ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EEA091E39985400222F11 /* Sebs_ToDo.xcdatamodeld */; };
 		9E5EEA0D1E39985400222F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E5EEA0C1E39985400222F11 /* Assets.xcassets */; };
 		9E5EEA101E39985400222F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E5EEA0E1E39985400222F11 /* LaunchScreen.storyboard */; };
+		9E5EEA181E399B4B00222F11 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EEA171E399B4B00222F11 /* Task.swift */; };
+		9E5EEA1A1E39A09B00222F11 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EEA191E39A09B00222F11 /* CreateTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E01D4371E39AB8B00C4290F /* CompleteTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteTaskViewController.swift; sourceTree = "<group>"; };
 		9E5EE9FF1E39985400222F11 /* Sebs ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sebs ToDo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5EEA021E39985400222F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E5EEA041E39985400222F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9E5EEA041E39985400222F11 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		9E5EEA071E39985400222F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5EEA0A1E39985400222F11 /* Sebs_ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sebs_ToDo.xcdatamodel; sourceTree = "<group>"; };
 		9E5EEA0C1E39985400222F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E5EEA0F1E39985400222F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E5EEA111E39985400222F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E5EEA171E399B4B00222F11 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		9E5EEA191E39A09B00222F11 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				9E5EEA021E39985400222F11 /* AppDelegate.swift */,
-				9E5EEA041E39985400222F11 /* ViewController.swift */,
+				9E5EEA041E39985400222F11 /* TasksViewController.swift */,
+				9E01D4371E39AB8B00C4290F /* CompleteTaskViewController.swift */,
+				9E5EEA191E39A09B00222F11 /* CreateTaskViewController.swift */,
+				9E5EEA171E399B4B00222F11 /* Task.swift */,
 				9E5EEA061E39985400222F11 /* Main.storyboard */,
 				9E5EEA0C1E39985400222F11 /* Assets.xcassets */,
 				9E5EEA0E1E39985400222F11 /* LaunchScreen.storyboard */,
@@ -139,9 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E5EEA051E39985400222F11 /* ViewController.swift in Sources */,
+				9E5EEA181E399B4B00222F11 /* Task.swift in Sources */,
+				9E5EEA051E39985400222F11 /* TasksViewController.swift in Sources */,
+				9E01D4381E39AB8B00C4290F /* CompleteTaskViewController.swift in Sources */,
 				9E5EEA0B1E39985400222F11 /* Sebs_ToDo.xcdatamodeld in Sources */,
 				9E5EEA031E39985400222F11 /* AppDelegate.swift in Sources */,
+				9E5EEA1A1E39A09B00222F11 /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +306,7 @@
 				9E5EEA131E39985400222F11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9E5EEA141E39985400222F11 /* Build configuration list for PBXNativeTarget "Sebs ToDo" */ = {
 			isa = XCConfigurationList;
@@ -303,6 +315,7 @@
 				9E5EEA161E39985400222F11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
