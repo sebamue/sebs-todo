@@ -13,19 +13,23 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var taskTableView: UITableView!
     
     var tasks : [Task] = []
-    var selectedIndex = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        
-        tasks = makeTasks()
-        
         taskTableView.dataSource = self
         taskTableView.delegate = self
         
     }
+    
+    // This gets called when view shows up (not just the first time)
+    override func viewWillAppear(_ animated: Bool) {
+        getTasks()
+        taskTableView.reloadData()
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
@@ -35,56 +39,50 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = UITableViewCell()
         let task = tasks[indexPath.row]
         if task.important {
-            cell.textLabel?.text = "❗️ \(task.name)"
+            cell.textLabel?.text = "❗️ \(task.name!)"
         } else {
-            cell.textLabel?.text = task.name
+            cell.textLabel?.text = task.name!
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-        
         let task = tasks[indexPath.row]
         performSegue(withIdentifier: "selectTaskSegue", sender: task)
         
     }
     
     
-    func makeTasks () -> [Task] {
-        let task1 = Task()
-        task1.name = "walk the dog"
-        task1.important = false
-        
-        let task2 = Task()
-        task2.name = "buy chicken wings"
-        task2.important = true
-        
-        let task3 = Task()
-        task3.name = "mow the lawn"
-        task3.important = false
-        
-        return [task1, task2, task3]
-    }
     
     @IBAction func plusTapped(_ sender: AnyObject) {
         performSegue(withIdentifier: "addSegue", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get tasks from the database / CoreData
+    // Fetch gives us back an array of something
+    func getTasks() {
         
-        if segue.identifier == "addSegue" {
-            let nextVC = segue.destination as! CreateTaskViewController
-            nextVC.previousVC = self
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        do {
+            tasks = try context.fetch(Task.fetchRequest()) as! [Task]
+            
+            print(tasks)
+            
+        } catch {
+            
+            print("Error fetching CoreData Table")
+            
         }
-        
-        if segue.identifier == "selectTaskSegue" {
-            let nextVC = segue.destination as! CompleteTaskViewController
-            nextVC.task = sender as! Task
-            nextVC.previousVC = self
-        }
-        
     }
-    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            if segue.identifier == "selectTaskSegue" {
+                let nextVC = segue.destination as! CompleteTaskViewController
+                nextVC.task = sender as? Task
+            }
+            
+        }
+        
 }

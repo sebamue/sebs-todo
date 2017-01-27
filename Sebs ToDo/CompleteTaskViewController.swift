@@ -11,25 +11,29 @@ import UIKit
 class CompleteTaskViewController: UIViewController {
 
     @IBOutlet weak var taskLabel: UILabel!
-    var task = Task()
+    var task : Task? = nil
     
-    var previousVC = TasksViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if task.important {
-            taskLabel.text = "❗️ \(task.name)"
+        if task!.important {
+            taskLabel.text = "❗️ \(task!.name!)"
         } else {
-            taskLabel.text = task.name
+            taskLabel.text = task!.name!
         }
         
     }
 
     @IBAction func completeTapped(_ sender: AnyObject) {
-    
-        previousVC.tasks.remove(at: previousVC.selectedIndex)
-        previousVC.taskTableView.reloadData()
+        
+        //Get context, delete the object that we are looking at
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(task!)
+        
+        //Save to CoreData
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        // Pop to previous VC
         navigationController!.popViewController(animated: true)
     }
     
